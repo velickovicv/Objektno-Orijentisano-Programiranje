@@ -14,7 +14,7 @@ private:
 
 public:
 	Student();
-	Student(char* ime, char* prezime, int brojIndexa, int maxBrojIspita
+	Student(char* ime, char* prezime, int brojIndexa, int maxBrojIspita)
 	~Student();
 	inline void info(int* index, int* ispiti)
 	{
