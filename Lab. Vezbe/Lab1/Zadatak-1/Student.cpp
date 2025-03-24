@@ -28,6 +28,21 @@ Student::Student(char* ime, char* prezime, int brojIndeksa, int maxIspiti, int b
 	this->ocene = new int[brojPolozenih];
 }
 
+Student::~Student()
+{
+	if (ime != nullptr) {
+		delete[] ime;
+	}
+
+	if (prezime != nullptr) {
+		delete[] prezime;
+	}
+
+	if (ocena != nullptr) {
+		delete[] ocena;
+	}
+}
+
 void Student::dodajOcenu()
 {
 	int tempOcena;
