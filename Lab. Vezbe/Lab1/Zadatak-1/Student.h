@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string.h>
-#pragama once
+#pragma once
 
 using namespace std;
 
