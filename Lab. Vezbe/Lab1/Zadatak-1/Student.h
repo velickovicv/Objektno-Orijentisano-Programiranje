@@ -1,30 +1,34 @@
 #include <iostream>
 #include <string.h>
+#pragama once
+
 using namespace std;
 
 class Student
 {
 private:
-	char* ime;
+
 	char* prezime;
-	int brojIndexa;
-	int maxBrojIspita;
-	int brojPolozenihIspita;
+	char* ime;
+	int brIndexa;
+	int maxBrIspita;
+	int brPolozenih;
 	int* ocene;
 
 public:
-	Student();
-	Student(char* ime, char* prezime, int brojIndexa, int maxBrojIspita)
-	~Student();
-	inline void info(int* index, int* ispiti)
-	{
-		*index = this->brojIndexa;
-		*ispiti = this->brojPolozenihIspita;
-	}
-	void dodajOcenu();
-	void input();
-	void prikaziOcena();
-	void output();
-	void azuriraj();
 
-};
+	Student();
+	Student(char* prezime, char* ime, int brIndexa, int maxBrIspita, int brPolozenih);
+	~Student();
+
+	inline int getbrIndexa() const { return brIndexa; }
+	inline int getbrPolozenih() const { return brPolozenih; }
+
+	int dodajOcenu(int ocena);
+	void ucitaj();
+	int prikaziOcene();
+	void output();
+	void azuriraj(const char* novoIme, const char* novoPrezime);
+};  
+
+
