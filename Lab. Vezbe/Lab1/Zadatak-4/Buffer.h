@@ -1,3 +1,4 @@
+#include <iostream>
 #pragma once
 using namespace std;
 
@@ -6,19 +7,18 @@ class Buffer
 private:
 
 	int* niz;
-	int velicina;
-	int brUpisanih;
+	int n;
+	int trBrojUpisanih;
 
 public:
 
 	Buffer();
-	Buffer(int velicina);
-	Buffer(const Buffer& b)
+	Buffer(int n);
 	~Buffer();
-	inline int vratiBrEl() { return brUpisanih; }
-	void push(int podatak);
+	inline int vrati() const { return trbrojupisanih; }
+	int push(int podatak); 
 	int pop();
-	void prikazi();
+	void output();
 	void dupliraj();
 	void izbaciPrazna();
 
