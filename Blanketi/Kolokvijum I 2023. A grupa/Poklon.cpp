@@ -2,18 +2,27 @@
 
 Poklon::Poklon()
 {
-	cena = 0.0;
+	cena = 0;
 	brojMasnica = 0;
+
 }
 
-// Dobra praksa jer je efikasnije, direktno se incijalizuje prilikom kreiranja
-// umesto da se prvo uzima podrazumevana vrednost, pa se onda menja
+// Dodela vrednosti atributa unutra tela konstruktora
+// **Ne moze se koristiti za const clanove i reference!!!
 
-Poklon::Poklon(double _cena, int _brojMasnica)    
-	:cena(_cena), brojMasnica(_brojMasnica)
+Poklon::Poklon(double _cena, int _brojMasnica)
 {
-
+	cena = _cena;
+	brojMasnica = _brojMasnica;
 }
+
+// Dodela vrednosti atributa preko inicijalizacione liste
+
+// Poklon::Poklon(double _cena, int _brojMasnica)
+//   :cena(_cena), brojMasnica(_brojMasnica) 
+// {
+// }
+
 Poklon::Poklon(const Poklon& p)
 {
 	cena = p.cena;
@@ -23,13 +32,14 @@ Poklon::~Poklon()
 {
 
 }
-void Poklon::prikazi(ostream& izlaz) const
+
+void Poklon::print(ostream& izlaz) const
 {
-	izlaz << "Cena: " << cena << "\nBroj masnica: " << brojMasnica << endl;
+	izlaz << "Cena" << cena << "\nBroj masnica" << brojMasnica << endl;
 }
 ostream& operator<<(ostream& izlaz, const Poklon& p)
 {
-	p.prikazi(izlaz);
-	return izlaz;
-}
+	p.print(izlaz);
+	return izlaz;  // Kada radimo overloading << operator, moramo vratiti referencu na izlazni tok da bi mogli ispisati objekat
 
+}
