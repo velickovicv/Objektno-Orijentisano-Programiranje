@@ -13,15 +13,13 @@ private:
 
 public:
 
-	Poklon();
-	Poklon(double _cena, int _brojMasnica);
-	Poklon(const Poklon& p);   // Copy construktor 
+	Poklon(); // Default konstruktor
+	Poklon(double _cena, int _brojMasnica); // Inicijalizacija atributa objekta, "konstruktor sa parametrima"
+	Poklon(const Poklon& p); // Copy construktor 
 	virtual ~Poklon();
 
-	friend ostream& operator<<(ostream& izlaz, const Poklon& p);
+	virtual void print(ostream& izlaz) const;
+	friend ostream& operator<<(ostream& izlaz, const Poklon& p); // Da bi pristupio privatnim atributima klase, kao sto su brojMasnica za kasnije
+
 	virtual int vratiBrojMasnica() const = 0;
-
-	virtual void prikazi(ostream& izlaz) const = 0;
-
-
 };
