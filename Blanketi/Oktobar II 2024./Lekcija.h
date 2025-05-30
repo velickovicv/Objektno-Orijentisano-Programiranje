@@ -1,22 +1,22 @@
 #pragma once
-#include "IspitniMaterijal.h"
+#include "IspitniMaterijali.h"
 
-class Lekcija : public IspitniMaterijal
+class Lekcija : public IspitniMaterijali
 {
 
 private:
 
-	float duzinaUStranicama;
+	double duzinaUstranicama;
 
 public:
 
 	Lekcija();
-	Lekcija(int oznaka, float tezina, float duzinaUStranicama);
+	Lekcija(int _oznaka, double _tezina, bool _status, double _duzinaUstranicama);
 	Lekcija(const Lekcija& l);
-	virtual ~Lekcija();
+	~Lekcija();
 
 	float vratiVreme(int vreme);
 
-	void prikazi(ostream& izlaz);
+	void stampaj(ostream& izlaz);
 
 };
