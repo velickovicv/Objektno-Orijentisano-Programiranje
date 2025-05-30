@@ -1,27 +1,24 @@
 #include "Lekcija.h"
 
 Lekcija::Lekcija()
-	:IspitniMaterijal()
 {
-	duzinaUstranicama = 0;
+   float duzinaUstranicama;
 }
-Lekcija::Lekcija(int oznaka, float tezina, float duzinaUStranicama)
-	:IspitniMaterijal(oznaka, tezina)
+Lekcija::Lekcija(int _oznaka, double _tezina, double _duzinaUstranicama)
+	:IspitniMaterijali(_oznaka, _tezina)
 {
-	this->duzinaUStranicama = duzinaUStranicama;
+	duzinaUstranicama = _duzinaUstranicama;
 }
 Lekcija::Lekcija(const Lekcija& l)
-	:IspitniMaterijal(l)
 {
-	duzinaUStranicama = l.duzinaUStranicama;
+	duzinaUstranicama = l.duzinaUstranicama;
 }
 Lekcija::~Lekcija()
 {
-
 }
 float Lekcija::vratiVreme(int vreme)
 {
-	return (float)tezina * (float)duzinaUStranicama * vreme;
+	return (float)tezina * (float)duzinaUstranicama * vreme;
 }
 void Lekcija::stampaj(ostream& izlaz)
 {
@@ -29,5 +26,5 @@ void Lekcija::stampaj(ostream& izlaz)
 		<< "oznaka: " << oznaka << endl
 		<< "tezina: " << tezina << endl
 		<< "status: " << status << endl
-		<< "stranice: " << stranice << endl;
+		<< "stranice: " << duzinaUstranicama << endl;
 }
