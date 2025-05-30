@@ -17,6 +17,9 @@ public:
 	IspitniMaterijali();
 	IspitniMaterijali(int _oznaka, float _tezina, bool _status);
 	IspitniMaterijali(const IspitniMaterijali& im);
+
+        // Virtualni destruktor koristimo kada klasa ima bar jednu virtuelnu f-ju!
+
 	virtual ~IspitniMaterijali();
 
 	int vratiOznaku();
