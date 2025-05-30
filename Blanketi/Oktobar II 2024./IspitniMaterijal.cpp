@@ -1,42 +1,48 @@
-#include "IspitniMaterijal.h"
+#include "IspitniMaterijali.h"
 
-IspitniMaterijal::IspitniMaterijal()
+IspitniMaterijali::IspitniMaterijali()
 {
 	oznaka = 0;
-	tezina = 0.0;
+	tezina = 0;
+
+	// Stavili smo status savladan u FALSE, jer se u zadatku pita da se odradi *nesto, samo ako materijali nisu savladani
+	// Isto se trazi da se status promeni u savladano, tako da je za default konstruktor najbolje da stavimo status na False
+
 	status = false;
 
 }
-IspitniMaterijal::IspitniMaterijal()
+IspitniMaterijali::IspitniMaterijali(int _oznaka, float _tezina, bool _status)
 {
-	this->oznaka = oznaka;
-	this->tezina = tezina;
-	this->status = 0;
+	oznaka = _oznaka;
+	tezina = _tezina;
+	status = _status;
 }
-IspitniMaterijal::IspitniMaterijal(const IspitniMaterijal& im)
+
+// Copy construktor 
+
+IspitniMaterijali::IspitniMaterijali(const IspitniMaterijali& im)
 {
 	oznaka = im.oznaka;
 	tezina = im.tezina;
 	status = im.status;
 }
-IspitniMaterijal::~IspitniMaterijal()
+IspitniMaterijali::~IspitniMaterijali()
 {
-
 }
-int IspitniMaterijal::vratiOznaku()
+int IspitniMaterijali::vratiOznaku()
 {
 	return oznaka;
 }
-bool IspitniMaterijal::jeSavladan()
+bool IspitniMaterijali::jeSavladan()
 {
 	return status;
 }
-void IspitniMaterijal::savladaj()
+void IspitniMaterijali::savladaj()
 {
 	status = true;
 }
-friend ostream& operator<<(ostream& izlaz, IspitniMaterijal& im)
+friend ostream& operator<<(ostream& izlaz, IspitniMaterijali& im)
 {
-	im.prikazi(izlaz);
+	im.stampaj(izlaz);
 	return izlaz;
 }
