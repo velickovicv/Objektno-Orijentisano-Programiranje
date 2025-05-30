@@ -15,7 +15,7 @@ private:
 public:
 
 	IspitniMaterijali();
-	IspitniMaterijali(int _oznaka, float _tezina, bool _savladan);
+	IspitniMaterijali(int _oznaka, float _tezina, bool _status);
 	IspitniMaterijali(const IspitniMaterijali& im);
 	virtual ~IspitniMaterijali();
 
