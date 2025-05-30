@@ -1,30 +1,41 @@
 #pragma once
 #include <iostream>
-
+#include <fstream>
 using namespace std;
 
-class IspitniMaterijal
+class IspitniMaterijali
 {
 
 private:
 
 	int oznaka;
-	float tezina;
+	double tezina;
 	bool status;
 
 public:
 
-	IspitniMaterijal();
-	IspitniMaterijal(int oznaka, float tezina);
-	IspitniMaterijal(const IspitniMaterijal& im);
-	virtual ~IspitniMaterijal();
+	IspitniMaterijali();
+	IspitniMaterijali(int _oznaka, float _tezina, bool _savladan);
+	IspitniMaterijali(const IspitniMaterijali& im);
+	virtual ~IspitniMaterijali();
 
 	int vratiOznaku();
 	bool jeSavladan();
 	void savladaj();
 
+
+	// Virtualna f-ja, omogucava polimorfizam. Treba vratiti vreme za koje mogu se preci ispitni materijali
+	// Posto postoje dva ispitna materijala, lekcije i zadaci, da bi f-ja znala da za koju klasu treba da se pozove, dodajemo virtual i mi je pozivamo u odgovarajucoj klasi
+
 	virtual float vratiVreme(int vreme) = 0;
 
-	virtual void prikazi(ostream& izlaz) = 0;
-	friend ostream& operator<<(ostream& izlaz, IspitniMaterijal& im);
+
+	// Isto vazi i za stampanje, da bi mogli istu funkciju da koristimo u vise klasa
+
+	virtual void stampaj(ostream& izlaz) = 0;
+
+	// Friend f-ja, pristupa privatnim clanovima klase, da bi mogao da ih istampa, 
+	// jer u zadatku pise, da u svakom trenutku mogu da pogledaju(istampaju) ispitne materijali
+
+	friend ostream& operator<<(ostream& izlaz, IspitniMaterijali& im); 
 };
