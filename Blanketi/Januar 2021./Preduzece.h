@@ -1,31 +1,25 @@
 #pragma once
 #include "Domacinstvo.h"
-#include "SolarnoDomacinstvo.h"
-#include <iostream>
-using namespace std;
+#include "SolarnaDomacinstva.h"
 
 class Preduzece
 {
-
-private:
-
 	Domacinstvo** niz;
-	int n;
-	int trbr;
-
+	int maxEl;
+	int top;
 
 public:
 
 	Preduzece();
-	Preduzece(int n);
+	Preduzece(int _maxEl);
 	virtual ~Preduzece();
 
-	void dodajDomacinstvo(Domacinstvo* d);
-	void ukloniDomacinstvo(int brojId);
-
 	void prikazi(ostream& izlaz);
+	void dodaj(Domacinstvo* d);
+	void izbaci(int broj);
 	double prosecnaPotrosnja();
 
 	Domacinstvo* najmanjaSvota(double cena);
 	Domacinstvo* najvecaSvota(double cena);
+
 };
